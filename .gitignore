@@ -1,0 +1,20 @@
+# Dataform
+__pycache__/
+*.pyc
+.dataform/
+.cache/
+
+# BigQuery
+*.json  # service account keys (nunca commitar)
+.env
+*.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

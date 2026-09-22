@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "curso-dataform-488319",
+  schema: "raw_data",
+  name: "orders",
+  description: "Tabla transaccional de ventas"
+}

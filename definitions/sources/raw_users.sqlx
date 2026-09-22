@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "curso-dataform-488319",
+  schema: "raw_data",
+  name: "users",
+  description: "Tabla dimensional de usuarios"
+}

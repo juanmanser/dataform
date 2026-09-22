@@ -1,0 +1,59 @@
+name: Dataform CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dataform-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Dataform CLI
+        run: npm install -g @dataform/cli
+        
+      - name: Compile Dataform
+        run: dataform compile
+        working-directory: ./curso-gcp-dataform-unificado
+
+  dataform-run:
+    runs-on: ubuntu-latest
+    needs: dataform-compile
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Dataform CLI
+        run: npm install -g @dataform/cli
+      
+      # Opción A: Workload Identity Federation (recomendado)
+      # - name: Authenticate to GCP via WIF
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     workload_identity_provider: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/dataform-pool/providers/github
+      #     service_account: dataform-sa@PROJECT_ID.iam.gserviceaccount.com
+      
+      # Opción B: Service Account Key (más simple)
+      # - name: Authenticate to GCP
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     credentials_json: ${{ secrets.GCP_SA_KEY }}
+      
+      - name: Run Dataform
+        run: dataform run
+        working-directory: ./curso-gcp-dataform-unificado
+        env:
+          DF_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
