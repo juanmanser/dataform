@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Curso GCP Dataform — ELT CI/CD Unificado
 
 Repositorio consolidado de los 6 labs del curso **GCP Dataform: ELT y CI/CD**, unificado en una sola estructura lista para desplegar en Dataform vía GitHub.
@@ -224,3 +225,6 @@ Dado que las 6 labs son idénticas, no fue necesario elegir "la versión más co
 
 ### Recomendación
 Las 6 labs originales pueden eliminarse o archivarse, ya que `curso-gcp-dataform-unificado/` contiene el único contenido relevante. Mantener múltiples copias idénticas genera confusión sin agregar valor.
+=======
+# dataform
+>>>>>>> aa050b1c20615c80eea684a8837c65428ccc2b32
