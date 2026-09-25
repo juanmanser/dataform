@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# Curso GCP Dataform — ELT CI/CD Unificado
+
+# GCP Dataform — ELT CI/CD Unificado
 
 Repositorio consolidado de los 6 labs del curso **GCP Dataform: ELT y CI/CD**, unificado en una sola estructura lista para desplegar en Dataform vía GitHub.
 
